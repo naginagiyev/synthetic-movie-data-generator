@@ -180,29 +180,6 @@ After you change a value, run `generate.py` again to rebuild the tables.
 
 ---
 
-## 💡 Example SQL ideas
-
-Once you import the CSV files into a database, you can try queries like:
-
-```sql
--- Top 10 highest-rated movies
-SELECT m.movieTitle, AVG(r.rating) AS avgRating
-FROM movies m
-JOIN reviews r ON m.movieID = r.movieID
-GROUP BY m.movieID
-ORDER BY avgRating DESC
-LIMIT 10;
-
--- How many movies did each director make?
-SELECT d.directorName, COUNT(*) AS movieCount
-FROM directors d
-JOIN movies m ON d.directorID = m.directorID
-GROUP BY d.directorID
-ORDER BY movieCount DESC;
-```
-
----
-
 ## 📦 Requirements
 
 - Python 3.8+
@@ -211,7 +188,3 @@ ORDER BY movieCount DESC;
 - tqdm
 - nltk
 - numpy
-
-Optional (for `test.ipynb`): matplotlib, jupyter
-
-Happy exploring! 🍿
